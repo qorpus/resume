@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<!--
+This is an HTML document. It contains information about how elements in the website
+are arranged. In other words, it describes the layout of a website.
+
+I can't wait to see the resumes you put together!
+
+Cameron Pittman, Udacity Course Developer
+-->
+
+<!--
+The <head> of a website generally links to important resources the page will
+need to load. You'll see a lot of <link>s to CSS files for styles and
+<scripts> for JavaScript files to build interactions.
+-->
+<head>
+  <!-- This tells the browser how to read the document. -->
+  <meta charset="utf-8">
+
+  <!-- Tells the browser what the title of this page should be. -->
+  <title>Resume</title>
+
+  
+
+  <!-- add fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/css-social-buttons/1.1.1/css/zocial.min.css"> 
+
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!-- Load the page styles. -->
+  <link rel="stylesheet" href="css/style.css" >
+
+  <!--
+  jQuery is a common JavaScript library for reading and making changes to the
+  Document Object Model (DOM). The DOM is a tree that contains information
+  about what is actually visible on a website.
+
+  While HTML is a static document, the browser converts HTML to the
+  DOM and the DOM can change. In fact, JavaScript's power comes from
+  its ability to manipulate the DOM, which is essentially a JavaScript
+  object. When JavaScript makes something interesting happen on a
+  website, it's likely the action happened because JavaScript changed
+  the DOM. jQuery is fast and easy to use, but it doesn't do anything
+  you can't accomplish with vanilla (regular) JavaScript.
+  -->
+  <script src="js/jQuery.js"></script>
+
+  <!-- More on helper.js in the class -->
+  <script src="js/helper.js"></script>
+
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.min.js"></script>
+
+  <!--
+  Uncomment the <script> tag below when you're ready to add an interactive
+  Google Map to your resume!
+  -->
+ <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+  <div id="main">
+
+    <!--
+    Everything from here to the <script> tag below is the skeleton of your
+    website. Your code will add information to each of the sections of the
+    resume below. You can pretty easily figure out what each section will
+    display by looking at the id or at what's written between the <h2> tags.
+    -->
+    <header id="header" class="center-content clear-fix">
+      <a class="page-anchor" href="#header"></a>
+      <ul id="topContacts" class="flex-box"></ul>
+    </header>
+
+    <div style="clear: both;"></div>
+    <section id="workExperience" class="gray">
+      <a class="page-anchor" href="#workExperience"></a>
+      <h2 class="section-title-h2" >Work Experience</h2>
+    </section>
+    <section id="projects">
+      <a class="page-anchor" href="#projects"></a>
+      <h2 class="section-title-h2" >Projects</h2>
+    </section>
+    <section id="education" class="gray">
+      <a class="page-anchor" href="#education"></a>
+      <h2 class="section-title-h2" >Education</h2>
+    </section>
+    <section id="mapDiv">
+      <a class="page-anchor" href="#mapDiv"></a>
+      <h2 class="section-title-h2" >Where I've Lived and Worked</h2>
+    </section>
+    <section id="lets-connect" class="dark-gray">
+      <h2 class="purple center-text">Let's Connect</h2>
+        <ul id="footerContacts" class="flex-box">
+      </ul>
+    </section>
+  </div>
+
+
+
+ <!-- nav bar -->
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="images/brand.jpg" alt="brand image" ></a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav-pills navbar-nav">
+          <li class="active"><a class="navbar-link-box" href="#header">Bio<span class="sr-only">(current)</span></a></li>
+          <li><a class="navbar-link-box" href="#workExperience">Work Experience</a></li>
+          <li><a class="navbar-link-box" href="#projects">Projects</a></li>
+          <li><a class="navbar-link-box" href="#education">Education</a></li>
+          <li><a class="navbar-link-box" href="#mapDiv">Map</a></li>
+          <li class="dropdown navbar-link-box">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="http://placekitten.com/g/200/300">Random cat picture</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a class="zocial youtube" href="https://www.youtube.com/watch?v=3a6EJAV7U1o">Terry Crews</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <!------->
+
+  <!--
+  The next line tells the browser where to download the JavaScript file you'll be
+  writing. In resumeBuilder.js, you'll be writing code that builds the resume
+  dynamically when this website, index.html, is opened.
+  -->
+  <script src="js/resumeBuilder.js"></script>
+
+
+  <!--
+  These scripts are written in JavaScript. You'll be breaking them down as part of
+  a quiz. Essentially, the next few lines are checking to see if you have not
+  changed each section of the resume. If you have not made any changes to a section
+  of the resume, then that part of the resume does not show up. More on this in the
+  course.
+  -->
+
+  <script type="text/javascript">
+    // Notice how all of a sudden there's JavaScript inside this HTML
+    // document? You can write JavaScript between <script> tags. At the end of your
+    // JavaScript, don't forget the closing script tag with the slash (/).
+
+
+    // Also, this is a JavaScript style comment. You can comment in JavaScript with:
+
+    //   two slashes for all following characters on a single line, or
+
+    /*
+        an opening and closing set of slash asterisks for block comments.
+    */
+
+
+    if(document.getElementsByClassName('flex-item').length === 0) {
+      document.getElementById('topContacts').style.backgroundColor = 'black';
+    }
+    if(document.getElementsByTagName('h1').length === 0) {
+      document.getElementById('header').style.backgroundColor = 'black';
+    }
+    if(document.getElementsByClassName('work-entry').length === 0) {
+      document.getElementById('workExperience').style.backgroundColor = 'black';
+    }
+    if(document.getElementsByClassName('project-entry').length === 0) {
+      document.getElementById('projects').style.backgroundColor = 'black';
+    }
+    if(document.getElementsByClassName('education-entry').length === 0) {
+      document.getElementById('education').style.backgroundColor = 'black';
+    }
+    if(document.getElementsByClassName('flex-item').length === 0) {
+      document.getElementById('lets-connect').style.backgroundColor = 'black';
+    }
+    if(document.getElementById('map') === null) {
+      document.getElementById('mapDiv').style.backgroundColor = 'black';
+    }
+  </script>
+</body>
+</html>

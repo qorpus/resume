@@ -10,7 +10,7 @@ var bio = {
 		"twitter" : "qorpus",
 		"location" : "Toronto"
 	},
-	"bioPic" : "images/face-100pc_large_2x.jpg",
+	"biopic" : "images/face-100pc_large_2x.jpg",
 	"welcomeMessage" : "This is my page, take a look!",
 	"skills" : ["javascript","jee","css","css"]
 };
@@ -23,9 +23,7 @@ var education = {
 			"degree" : "Bachelor of Science",
 			"location" : "Auckland, NZL",
 			"majors" : ["Information Technology"],
-			"minors" : [],
-			"startDate" : 2002,
-			"endDate" : 2005,
+			"dates" : "2002 - 2005",
 			"url" : "https://www.auckland.ac.nz"
 		}
 	],
@@ -33,15 +31,13 @@ var education = {
 		{
 			"title" : "Javascript Basics",
 			"school" : "Udacity",
-			"startDate" : "Dec-2015",
-			"endDate" : "Jan-2015",
+			"date" : "2015-12",
 			"url" : "www.udacity.com"
 		},
 		{
 			"title" : "HTML/CSS Basics",
 			"school" : "Udacity",
-			"startDate" : "Dec-2015",
-			"endDate" : "Dec-2015",
+			"date" : "2015-12",
 			"url" : "www.udacity.com"
 		}
 	]
@@ -54,24 +50,21 @@ var work =  {
 			"employer" : "Leonardo Worldwide Corp.",
 			"title" : "Senior Architect",
 			"location" : "Toronto, Canada",
-			"startDate" : 2008,
-			"endDate" : "",
+			"dates" : "2008-06 - present",
 			"description" : "senior arch, arching stuff"
 		},
 		{
 			"employer" : "Bluescope New Zealand Steel",
 			"title" : "Software Engineer",
 			"location" : "Auckland, NZL",
-			"startDate" : 2006,
-			"endDate" : 2008,
+			"dates" : "2006-01 - 2008-04",
 			"description" : "softwaring stuff"
 		},
 		{
 			"employer" : "Talgentra",
 			"title" : "Analyst Programmer",
 			"location" : "Auckland, NZL",
-			"startDate" : 2005,
-			"endDate" : 2005,
+			"dates" : "2005-06 - 2005-12",
 			"description" : "analysing stuff"
 		}
 	]
@@ -82,15 +75,13 @@ var projects = {
 	"projects" : [
 		{
 			"title" : "test project 1",
-			"startDate" : 2015,
-			"endDate" : 2015,
+			"dates" : "2014 - 2015",
 			"description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
 			"images" : ["http://lorempixel.com/401/200/", "http://lorempixel.com/402/200/" ]
 		},
 		{
 			"title" : "test project 2",
-			"startDate" : 2008,
-			"endDate" : 2014,
+			"dates" : "2008 - 2009",
 			"description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
 			"images" : ["http://lorempixel.com/400/203/", "http://lorempixel.com/400/204/" ]
 		}
@@ -102,25 +93,27 @@ var projects = {
 //functions
 
 bio.display = function(){
+
+	//add header
 	$("#header").prepend( dataReplace( HTMLheaderRole, bio.role) );
 	$("#header").prepend( dataReplace( HTMLheaderName,bio.name) );
-	$("#header").append( dataReplace( HTMLbioPic, bio.bioPic) );
+	$("#header").append( dataReplace( HTMLbioPic, bio.biopic) );
 	$("#header").append( dataReplace( HTMLwelcomeMsg, bio.welcomeMessage) );
-};
 
-bio.contacts.display = function(){
-
+	//add top contacts
 	$("#topContacts").append( dataReplace( HTMLmobile, bio.contacts.mobile) );
 	$("#topContacts").append( dataReplace( HTMLemail, bio.contacts.email) );
 	$("#topContacts").append( dataReplace( HTMLtwitter, bio.contacts.twitter) );
 	$("#topContacts").append( dataReplace( HTMLgithub, bio.contacts.github) );
 	$("#topContacts").append( dataReplace( HTMLlocation, bio.contacts.location ) );
-	
-};
 
+	//add footer contacts
+	$("#footerContacts").append( dataReplace( HTMLmobile, bio.contacts.mobile) );
+	$("#footerContacts").append( dataReplace( HTMLemail, bio.contacts.email) );
+	$("#footerContacts").append( dataReplace( HTMLtwitter, bio.contacts.twitter) );
+	$("#footerContacts").append( dataReplace( HTMLgithub, bio.contacts.github) );
 
-bio.displaySkills = function(){
-
+	//add skills
 	if( bio.skills.length > 0 ) {
 
 		$("#header").append( HTMLskillsStart );
@@ -132,6 +125,7 @@ bio.displaySkills = function(){
 		}
 
 	}
+
 };
 
 
@@ -147,7 +141,7 @@ work.display = function(){
 			var employerFormatted = dataReplace( HTMLworkEmployer, job.employer );
 			var titleFormatted = dataReplace( HTMLworkTitle, job.title );
 			var locationFormatted = dataReplace(HTMLworkLocation, job.location );
-			var datesFormatted = dataReplace( HTMLworkDates, job.startDate +"-"+ job.endDate );
+			var datesFormatted = dataReplace( HTMLworkDates, job.dates );
 			var descriptionFormatted = dataReplace( HTMLworkDescription, job.description );
 
 			$(".work-entry:last").append( employerFormatted + titleFormatted + locationFormatted + datesFormatted + descriptionFormatted ); 
@@ -170,7 +164,7 @@ projects.display = function() {
 			var proj = projects.projects[i];
 
 			var projTitleFormatted = dataReplace( HTMLprojectTitle, proj.title );
-			var projDatesFormatted = dataReplace( HTMLprojectDates, proj.startDate + "-" + proj.endDate );
+			var projDatesFormatted = dataReplace( HTMLprojectDates, proj.dates );
 			var projDescFormatted = dataReplace( HTMLprojectDescription, proj.description );
 
 			var projImagesFromatted = "";
@@ -200,7 +194,7 @@ education.display = function(){
 
 			var schoolHtml = dataReplace( HTMLschoolName, school.name );
 			var degreeHtml = dataReplace( HTMLschoolDegree, school.degree );
-			var datesHtml = dataReplace( HTMLschoolDates, school.startDate+"-"+school.endDate );
+			var datesHtml = dataReplace( HTMLschoolDates, school.dates );
 			var locationHtml = dataReplace( HTMLschoolLocation, school.location );
 			var majorHtml = dataReplace( HTMLschoolMajor, school.majors.join(",") );
 
@@ -218,7 +212,7 @@ education.display = function(){
 			var course = education.onlineCourses[j];
 
 			$(".education-entry:last").append( dataReplace( HTMLonlineTitle, course.title ) + dataReplace( HTMLonlineSchool, course.school )  ); 
-			$(".education-entry:last").append( dataReplace( HTMLonlineDates, course.startDate+" - "+course.endDate ) );
+			$(".education-entry:last").append( dataReplace( HTMLonlineDates, course.date ) );
 			$(".education-entry:last").append( dataReplace( HTMLonlineURL, course.url ) );
 
 		}
@@ -232,8 +226,6 @@ education.display = function(){
 
 //invoke functions
 bio.display();
-bio.contacts.display();
-bio.displaySkills();
 work.display();
 projects.display();
 education.display();
